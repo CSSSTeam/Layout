@@ -6,7 +6,6 @@
 
 We **highly recommend** and only officially support the latest patch release of each Node.js and Angular/Cli series.
 
-```
 ## Install packets
 ```
 npm install
