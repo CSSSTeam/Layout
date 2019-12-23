@@ -26,23 +26,28 @@ export class UserService{
         'Authorization': 'token ' + token
       })
     };
-    return this.http.post(this.dataURL.server + this.dataURL.endpoints.infoUser,{} , httpOption);
+    return this.http.get(this.dataURL.server + this.dataURL.endpoints.infoUser , httpOption);
   }
 }
 export class User {
   public static instance: User;
   firstName: '';
-  LastName: '';
+  lastName: '';
   username: '';
-  lastLogin: '';
+  email: '';
   token: '';
 
   constructor(token, userService: UserService) {
-    this.token = token;
     userService.getProfilUser(token).subscribe(
-      () => console.log("success"),
+      (data:any) => {
+        this.firstName = data.FirstName;
+        this.lastName = data.LastName;
+        this.email = data.Email;
+        this.token = token;
+      },
       error => console.log(error)
     )
+
 
   }
 

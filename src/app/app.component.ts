@@ -29,7 +29,7 @@ export class AppComponent implements OnInit{
     this.userService.loginUser(this.loginForm).subscribe(
       (data:any)=>{
         this.userService.createUser(data.token);
-        console.log(User.instance.token);
+        console.log(User.instance);
       },
       error => this.loginError(error.error)
     );
