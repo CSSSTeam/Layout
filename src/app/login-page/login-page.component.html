@@ -1,0 +1,8 @@
+<h3>{{displayError(errorForm.global)}}</h3>
+<p>{{displayError(errorForm.username)}}</p> <label>
+  <input [(ngModel)]="loginForm.username" placeholder="LOGIN">
+</label><br/>
+<p>{{displayError(errorForm.password)}}</p> <label>
+  <input [(ngModel)]="loginForm.password" type="password" placeholder="PASSWORD">
+</label>
+<button (click)="login()">LOGIN</button>
