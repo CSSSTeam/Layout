@@ -1,8 +1,13 @@
-<h3>{{displayError(errorForm.global)}}</h3>
-<p>{{displayError(errorForm.username)}}</p> <label>
-  <input [(ngModel)]="loginForm.username" placeholder="LOGIN">
-</label><br/>
-<p>{{displayError(errorForm.password)}}</p> <label>
-  <input [(ngModel)]="loginForm.password" type="password" placeholder="PASSWORD">
-</label>
-<button (click)="login()">LOGIN</button>
+<div id="logContainer">
+  <h3>{{displayError(errorForm.global)}}</h3>
+
+  <p>{{displayError(errorForm.username)}}</p>
+
+  <input [(ngModel)]="loginForm.username" placeholder="login"> <br>
+
+  <p>{{displayError(errorForm.password)}}</p>
+
+  <input [(ngModel)]="loginForm.password" type="password" placeholder="hasło"> <br>
+
+  <button (click)="login()">Zaloguj się</button>
+</div>
