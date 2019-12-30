@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {User, UserService} from '../user.service';
+import {UserService} from '../user.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -18,6 +18,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.loginForm = {
       username: '',
       password: ''
@@ -27,14 +28,13 @@ export class LoginPageComponent implements OnInit {
       username: '',
       password: ''
     };
-    User.instance = null;
+
   }
 
   login() {
     this.userService.loginUser(this.loginForm).subscribe(
       (data: any) => {
-        this.userService.createUser(data.token);
-        this.router.navigate(['/']);
+        this.userService.createUser(data.token, this.router);
       },
       error => this.loginError(error.error)
     );

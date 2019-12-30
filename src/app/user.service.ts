@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import * as data from '../config.json';
+import {Router} from '@angular/router';
 
 
 @Injectable()
@@ -18,8 +19,8 @@ export class UserService {
     return this.http.post(url, userData);
   }
 
-  createUser(token) {
-    User.instance = new User(token, this);
+  createUser(token, router: Router) {
+    User.instance = new User(token, this, router);
   }
 
   getProfileUser(token): Observable<any> {
@@ -46,18 +47,35 @@ export class User {
   token: '';
   groups: {};
 
-  constructor(token, userService: UserService) {
+  constructor(token, userService: UserService, router: Router) {
     userService.getProfileUser(token).subscribe(
       (data: any) => {
-        this.firstName = data.FirstName;
-        this.lastName = data.LastName;
-        this.email = data.Email;
-        this.token = token;
-        this.groups = data.Groups;
+        localStorage.setItem('token', token);
+        this.initData(data, token);
+        router.navigate(['/']);
       },
-      error => console.log(error)
+      error => {
+        if (error.status == 401 && error.error == 'Token is Invalid') {
+          User.instance = null;
+          router.navigate(['/login']);
+          return;
+        }
+        if (error.status == 0) {
+          let userString = localStorage.getItem('user');
+          this.initData(JSON.parse(userString), token);
+        }
+      }
     );
+  }
 
+  initData(data, token) {
+    this.firstName = data.firstName;
+    this.lastName = data.lastName;
+    this.email = data.email;
+    this.token = token;
+    this.groups = data.groups;
+
+    localStorage.setItem('user', JSON.stringify(this));
 
   }
 
