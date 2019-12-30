@@ -33,14 +33,6 @@ export class UserService {
     return this.http.get(this.dataURL.server + this.dataURL.endpoints.infoUser, httpOption);
   }
 
-  profilError(error, router) {
-    if (error.status == 401 && error.error == 'Token is Invalid') {
-      User.instance = null;
-      router.navigate(['/login']);
-      return;
-    }
-  }
-
   isLogged() {
     return User.instance != null;
   }
@@ -59,16 +51,31 @@ export class User {
     userService.getProfileUser(token).subscribe(
       (data: any) => {
         localStorage.setItem('token', token);
-        this.firstName = data.FirstName;
-        this.lastName = data.LastName;
-        this.email = data.Email;
-        this.token = token;
-        this.groups = data.Groups;
+        this.initData(data, token);
         router.navigate(['/']);
       },
-      error => userService.profilError(error, router)
+      error => {
+        if (error.status == 401 && error.error == 'Token is Invalid') {
+          User.instance = null;
+          router.navigate(['/login']);
+          return;
+        }
+        if (error.status == 0) {
+          let userString = localStorage.getItem('user');
+          this.initData(JSON.parse(userString), token);
+        }
+      }
     );
+  }
 
+  initData(data, token) {
+    this.firstName = data.firstName;
+    this.lastName = data.lastName;
+    this.email = data.email;
+    this.token = token;
+    this.groups = data.groups;
+
+    localStorage.setItem('user', JSON.stringify(this));
 
   }
 
