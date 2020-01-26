@@ -13,4 +13,16 @@ export class LoggedLayoutComponent implements OnInit {
   ngOnInit() {
   }
 
+  isMenu = false;
+  showMenu() {
+      if(this.isMenu==false) this.isMenu = true;
+      else this.isMenu = false;
+  }
+
+  isSett = false;
+  showSettings() {
+      if(this.isSett==false) this.isSett = true;
+      else this.isSett = false;
+  }
+
 }
