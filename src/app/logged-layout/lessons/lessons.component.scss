@@ -11,7 +11,7 @@
         h6 {
             font-size: 1.5rem;
             color: #bbb;
-            .icon-down-open {
+            .open {
                 position: absolute;
                 right: 10px;
             }
@@ -24,14 +24,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        table {
-            font-size: 1rem;
-            text-align: center;
-            tr {
-                padding: 10px;
-                border-bottom: 1px solid #222F40;
-            }
-        }
     }
     #hours {
         width: 80px;

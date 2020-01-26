@@ -21,8 +21,7 @@ export class LoggedLayoutComponent implements OnInit {
 
   isSett = false;
   showSettings() {
-      if(this.isSett==false) this.isSett = true;
-      else this.isSett = false;
+      this.isSett = !this.isSett;
   }
 
 }

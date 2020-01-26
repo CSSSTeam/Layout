@@ -14,7 +14,7 @@
   color: #bbb;
 }
 
-#timeTable .day h6 .icon-down-open {
+#timeTable .day h6 .open {
   position: absolute;
   right: 10px;
 }
@@ -26,16 +26,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#timeTable .table table {
-  font-size: 1rem;
-  text-align: center;
-}
-
-#timeTable .table table tr {
-  padding: 10px;
-  border-bottom: 1px solid #222F40;
 }
 
 #timeTable #hours {
