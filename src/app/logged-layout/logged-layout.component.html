@@ -6,13 +6,14 @@
         </div>
     </a>
     <div id="settings">
-        <i  (click)="showSettings()" class="icon-cog"></i>
-    </div>
-    <div *ngIf="isSett" id="account">
-        <div id="userOption">
-            <i class="icon-off"></i>
-            <i class="icon-key"></i>
-            <i class="icon-info"></i>
+        <i  *ngIf="isCog" (click)="showSettings()" class="icon-cog"></i>
+        <div *ngIf="isSett" id="account">
+            <div id="userOption">
+                <i class="icon-off"></i>
+                <i class="icon-key"></i>
+                <i class="icon-info"></i>
+                <i (click)="showSettings()" class="icon-cancel"></i>
+            </div>
         </div>
     </div>
     <div  (click)="showMenu()" id="menu">

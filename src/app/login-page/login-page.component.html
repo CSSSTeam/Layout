@@ -7,7 +7,7 @@
         Jest to nieduża, jasno zabarwiona małpa. Jej twarz jest charakterystyczna. Sierść dookoła oczu ma sinoniebieski odcień. Nos i uszy są ceglastoczerwone. Sierść na policzkach ma żółte zabarwienie i jest dość długa.
       </p>
   </div>
-  <main>
+  <div id="logPage">
       <div id="logBox">
           <h3>{{displayError(errorForm.global)}}</h3>
           <p>{{displayError(errorForm.username)}}</p>
@@ -16,5 +16,5 @@
           <input [(ngModel)]="loginForm.password" type="password" placeholder="hasło" onfocus="this.placeholder=''" onblur="this.placeholder='hasło'"> <br>
           <button (click)="login()">zaloguj się</button>
       </div>
-  </main>
+    </div>
 </div>

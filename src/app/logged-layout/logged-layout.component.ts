@@ -11,17 +11,22 @@ export class LoggedLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    let width = window.innerWidth;
+    if(width >= 1024) this.isMenu = true;
+    else this.isMenu = false;
   }
 
-  isMenu = false;
+  isMenu = true;
   showMenu() {
-      if(this.isMenu==false) this.isMenu = true;
-      else this.isMenu = false;
+    if(this.isMenu==false) this.isMenu = true;  //// DO POPRAWIENIA !!!!
+    else this.isMenu = false;   
   }
 
   isSett = false;
+  isCog = !this.isSett;
   showSettings() {
-      this.isSett = !this.isSett;
+    this.isSett = !this.isSett;
+    this.isCog = !this.isCog;
   }
 
 }

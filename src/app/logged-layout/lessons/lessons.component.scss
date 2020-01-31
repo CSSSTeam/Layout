@@ -48,3 +48,32 @@
         }
     }
 }
+@media (min-width: 768px) {
+    #timeTable {
+        max-height: 80vh;
+        overflow-y: scroll;
+        scrollbar-color: #ccc #222F40;
+        scrollbar-width: thin;
+        .day {
+            width: 600px;
+        }
+        .tableEl {
+            font-size: 1.5rem;
+        }
+        #hours {
+            width: 130px;
+        }
+        #subjects {
+            width: 310px;
+        }
+        #rooms {
+            width: 80px;
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #ccc
+    }
+}

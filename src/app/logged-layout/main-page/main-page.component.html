@@ -10,15 +10,16 @@
     <div id="schDays">
         <div id="day1" class="day">
             <h6><i class="icon-calendar"></i>Poniedziałek</h6>
-            <div *ngFor="let subjects of monSubjects">
+            <div class="subjects" *ngFor="let subjects of monSubjects">
                 {{ subjects.subject }}
             </div>
         </div>
         <div id="day2" class="day">
             <h6><i class="icon-calendar"></i>Wtorek</h6>
-            <div *ngFor="let subjects of tueSubjects">
+            <!--<div class="subjects" *ngFor="let subjects of tueSubjects">
                 {{ subjects.subject }}
-            </div>
+            </div>-->
+            <span class="null">Brak</span>
         </div>
         <div id="day3" class="day">
             <h6><i class="icon-calendar"></i>Środa</h6>
@@ -34,3 +35,4 @@
         </div>
     </div>
 </main>
+<div style="clear:both"></div>

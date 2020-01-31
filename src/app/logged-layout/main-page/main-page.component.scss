@@ -13,8 +13,8 @@
             margin-bottom: 5px;
         }
         div {
-            padding: 5px 8px;
-            margin: 8px;
+            padding: 1% 1.5%;
+            margin: 1%;
             border-radius: 10px;
             font-size: 1rem;
             letter-spacing: 1px;
@@ -28,5 +28,26 @@
             letter-spacing: 1px;
             color: #eee;
         }
+    }
+}
+@media (min-width: 768px) {
+    #schDays {
+        max-height: 80vh;
+        overflow-y: scroll;
+        scrollbar-color: #ccc #222F40;
+        scrollbar-width: thin;
+        .day {
+            width: 600px;
+        }
+        .subjects {
+            width: 48%;
+            display: inline-block;
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: #ccc
     }
 }

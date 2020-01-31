@@ -19,9 +19,10 @@ export class MainPageComponent implements OnInit {
   ngOnInit() {
 
     this.user = User.instance;
-
+    
   }
 
+ 
   monSubjects = [
     {subject: 'matematyka', type: 'test'},
     {subject: 'religia', type: 'smallTest'},
